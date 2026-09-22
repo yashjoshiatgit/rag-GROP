@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Local progress map (personal dashboard)
+MAP.md
+map.md
+
+# Environment variables
+.env
+.env.*
+
+# Data protection
+data/raw/
+data/interim/*
+!data/interim/.gitkeep
+data/*.db
+data/*.db-*
+*.parquet
+*.jsonl
+
+# Models & checkpoints
+checkpoints/
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Outputs & experiment runs
+outputs/*
+!outputs/.gitkeep
+
+# Experiment tracking & cache
+.wandb/
+wandb/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+tests/
