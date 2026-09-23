@@ -23,6 +23,7 @@ data/interim/*
 !data/interim/.gitkeep
 data/*.db
 data/*.db-*
+data/images
 *.parquet
 *.jsonl
 

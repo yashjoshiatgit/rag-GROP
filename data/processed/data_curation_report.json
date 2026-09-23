@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-09-23T16:08:07.762967+00:00",
+  "total_evaluated": 8058,
+  "pre_filtered_promos": 149,
+  "curated_passed": 6101,
+  "curated_rejected": 1957,
+  "pass_rate_pct": 75.71,
+  "avg_latency_ms": 97.8,
+  "total_runtime_sec": 783.63,
+  "taxonomy_distribution": {
+    "agentic_and_graph_rag": 2953,
+    "retrieval": 1443,
+    "generation_and_grounding": 683,
+    "tooling_and_frameworks": 1445,
+    "evaluation_and_benchmarks": 813,
+    "chunking_and_indexing": 572
+  }
+}
