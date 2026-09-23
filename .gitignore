@@ -26,6 +26,9 @@ data/*.db-*
 data/images
 *.parquet
 *.jsonl
+!data/evaluation/*.jsonl
+!data/evaluation/*.json
+
 
 # Models & checkpoints
 checkpoints/
@@ -46,5 +49,3 @@ wandb/
 .ruff_cache/
 .coverage
 htmlcov/
-
-tests/
