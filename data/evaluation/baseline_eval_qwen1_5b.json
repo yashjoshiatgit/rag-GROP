@@ -1,0 +1,241 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "avg_recall_pct": 23.08,
+  "avg_speed_tok_s": 22.95,
+  "category_recall_pct": {
+    "retrieval": 23.3,
+    "chunking_and_indexing": 22.2,
+    "generation_and_grounding": 20.0,
+    "evaluation_and_benchmarks": 20.0,
+    "agentic_and_graph_rag": 33.3,
+    "tooling_and_frameworks": 16.7
+  },
+  "results": [
+    {
+      "id": "rag_ret_001",
+      "category": "retrieval",
+      "recall": 0.0,
+      "tokens": 791,
+      "tok_per_sec": 15.64,
+      "has_think": false,
+      "matched": [],
+      "missing": [
+        "dense embeddings",
+        "out-of-vocabulary tokens",
+        "lexical search",
+        "BM25 / sparse retrieval",
+        "hybrid search",
+        "Reciprocal Rank Fusion (RRF)"
+      ]
+    },
+    {
+      "id": "rag_ret_002",
+      "category": "retrieval",
+      "recall": 0.5,
+      "tokens": 929,
+      "tok_per_sec": 24.54,
+      "has_think": false,
+      "matched": [
+        "bi-encoder",
+        "cross-encoder",
+        "computational complexity"
+      ],
+      "missing": [
+        "cross-attention",
+        "offline indexing",
+        "two-stage retrieval"
+      ]
+    },
+    {
+      "id": "rag_ret_003",
+      "category": "retrieval",
+      "recall": 0.2,
+      "tokens": 680,
+      "tok_per_sec": 19.64,
+      "has_think": false,
+      "matched": [
+        "HyDE"
+      ],
+      "missing": [
+        "zero-shot generation",
+        "hallucination propagation",
+        "domain-specific terminology",
+        "semantic drift"
+      ]
+    },
+    {
+      "id": "rag_idx_001",
+      "category": "chunking_and_indexing",
+      "recall": 0.0,
+      "tokens": 546,
+      "tok_per_sec": 23.19,
+      "has_think": false,
+      "matched": [],
+      "missing": [
+        "embedding dilution",
+        "semantic pooling",
+        "vector representational capacity",
+        "granularity mismatch",
+        "chunk size trade-off"
+      ]
+    },
+    {
+      "id": "rag_idx_002",
+      "category": "chunking_and_indexing",
+      "recall": 0.3333,
+      "tokens": 623,
+      "tok_per_sec": 24.76,
+      "has_think": false,
+      "matched": [
+        "efConstruction",
+        "efSearch"
+      ],
+      "missing": [
+        "HNSW graph",
+        "M (bidirectional links)",
+        "recall vs latency",
+        "priority queue size"
+      ]
+    },
+    {
+      "id": "rag_idx_003",
+      "category": "chunking_and_indexing",
+      "recall": 0.3333,
+      "tokens": 813,
+      "tok_per_sec": 24.65,
+      "has_think": false,
+      "matched": [
+        "pre-filtering",
+        "post-filtering"
+      ],
+      "missing": [
+        "top-k cutoff",
+        "tenant isolation",
+        "vector payload filtering",
+        "HNSW graph traversal"
+      ]
+    },
+    {
+      "id": "rag_gen_001",
+      "category": "generation_and_grounding",
+      "recall": 0.2,
+      "tokens": 698,
+      "tok_per_sec": 24.8,
+      "has_think": false,
+      "matched": [
+        "Lost in the Middle"
+      ],
+      "missing": [
+        "primacy bias",
+        "recency bias",
+        "chunk ordering",
+        "attention degradation"
+      ]
+    },
+    {
+      "id": "rag_gen_002",
+      "category": "generation_and_grounding",
+      "recall": 0.2,
+      "tokens": 717,
+      "tok_per_sec": 24.38,
+      "has_think": false,
+      "matched": [
+        "citation attribution"
+      ],
+      "missing": [
+        "verbatim quote extraction",
+        "string matching / fuzzy verification",
+        "nli / entailment model",
+        "hallucination mitigation"
+      ]
+    },
+    {
+      "id": "rag_eval_001",
+      "category": "evaluation_and_benchmarks",
+      "recall": 0.4,
+      "tokens": 645,
+      "tok_per_sec": 24.53,
+      "has_think": false,
+      "matched": [
+        "faithfulness / groundedness",
+        "answer relevance"
+      ],
+      "missing": [
+        "retrieved context adherence",
+        "query addressing",
+        "independent metrics"
+      ]
+    },
+    {
+      "id": "rag_eval_002",
+      "category": "evaluation_and_benchmarks",
+      "recall": 0.0,
+      "tokens": 582,
+      "tok_per_sec": 24.99,
+      "has_think": false,
+      "matched": [],
+      "missing": [
+        "LLM-as-a-judge",
+        "verbosity bias",
+        "position bias",
+        "self-enhancement bias",
+        "swap evaluation",
+        "reference-guided rubrics"
+      ]
+    },
+    {
+      "id": "rag_adv_001",
+      "category": "agentic_and_graph_rag",
+      "recall": 0.5,
+      "tokens": 876,
+      "tok_per_sec": 24.44,
+      "has_think": false,
+      "matched": [
+        "Corrective RAG (CRAG)",
+        "confidence threshold",
+        "correct / incorrect / ambiguous"
+      ],
+      "missing": [
+        "retrieval evaluator",
+        "external web search fallback",
+        "strip irrelevant sentences"
+      ]
+    },
+    {
+      "id": "rag_adv_002",
+      "category": "agentic_and_graph_rag",
+      "recall": 0.1667,
+      "tokens": 513,
+      "tok_per_sec": 24.22,
+      "has_think": false,
+      "matched": [
+        "GraphRAG"
+      ],
+      "missing": [
+        "multi-hop reasoning",
+        "relational connectivity",
+        "global dataset summarization",
+        "entity extraction bottleneck",
+        "graph construction cost"
+      ]
+    },
+    {
+      "id": "rag_tool_001",
+      "category": "tooling_and_frameworks",
+      "recall": 0.1667,
+      "tokens": 717,
+      "tok_per_sec": 24.73,
+      "has_think": false,
+      "matched": [
+        "hot-swapping"
+      ],
+      "missing": [
+        "blue-green indexing",
+        "memory-mapped files",
+        "shadow index / read replica",
+        "atomic pointer swap",
+        "zero downtime"
+      ]
+    }
+  ]
+}
