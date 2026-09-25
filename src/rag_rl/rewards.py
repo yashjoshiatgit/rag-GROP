@@ -192,7 +192,9 @@ def reward_reasoning_format(
                 answer_content = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
                 if len(think_content) >= min_think_chars and len(answer_content) >= min_answer_chars:
-                    rewards.append(1.0)
+                    # Explicit answer tags bonus (+1.0), or standard (+0.8)
+                    has_ans_tags = "<answer>" in text and "</answer>" in text
+                    rewards.append(1.0 if has_ans_tags else 0.8)
                 elif len(think_content) >= min_think_chars:
                     rewards.append(0.5)
                 else:
@@ -224,6 +226,7 @@ def reward_rag_concept_density(
     Awards points for:
     - Domain-specific terms from the target taxonomy category (0.4 points per matched concept)
     - General RAG concepts (0.2 points per matched concept)
+    - Chain-of-Thought planning bonus for concepts brainstormed in <think> (0.15 points per concept)
     Capped at max_reward (default +2.0).
     """
     rewards: List[float] = []
@@ -239,6 +242,16 @@ def reward_rag_concept_density(
         # Category-specific concepts get higher reward weight
         target_category = taxonomy_topic[idx] if taxonomy_topic and idx < len(taxonomy_topic) else None
         category_vocab = RAG_CONCEPT_TAXONOMY.get(target_category or "", [])
+
+        # Check for concepts planned inside <think> scratchpad
+        think_match = re.search(r"<think>(.*?)</think>", text, flags=re.DOTALL)
+        if think_match:
+            think_norm = normalize_text(think_match.group(1))
+            think_spaced = think_norm.replace("-", " ")
+            for term in (category_vocab if target_category else ALL_RAG_CONCEPTS):
+                term_clean = normalize_text(term)
+                if term_clean in think_norm or term_clean in think_spaced:
+                    score += 0.15
 
         for term in category_vocab:
             term_clean = normalize_text(term)
@@ -350,6 +363,14 @@ def reward_anti_repetition(
             if unique_ratio < 0.65:
                 # Significant degenerative looping
                 penalty -= (0.65 - unique_ratio) * 2.0
+
+        # Hallucinated URL penalty (-0.4)
+        if re.search(r"https?://|www\.", text, flags=re.IGNORECASE):
+            penalty -= 0.4
+
+        # Forum chatter / casual sign-off penalty (-0.3)
+        if re.search(r"\b(hope (this|it) helps|good luck|cheers|let me know if you have questions)\b", text, flags=re.IGNORECASE):
+            penalty -= 0.3
 
         rewards.append(round(penalty, 3))
 
