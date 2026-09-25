@@ -49,3 +49,5 @@ wandb/
 .ruff_cache/
 .coverage
 htmlcov/
+docs/
+model/
